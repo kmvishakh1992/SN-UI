@@ -1,0 +1,7 @@
+<h1>
+    Login!
+</h1><div class="container">
+    Username: <input #uname="ngModel" [(ngModel)]="username">
+Password : <input #pwd="ngModel" [(ngModel)]="password" type="password" name="password">
+<button class="btn btn-success" type="button" (click)="change()" >Login</button>
+<small *ngIf='invalid'>invalid</small></div>
