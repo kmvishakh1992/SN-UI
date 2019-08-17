@@ -9,7 +9,15 @@ import { FormGroup } from '@angular/forms';
 export class ErrorComponent implements OnInit {
 id: number =1;
 countryForm: FormGroup;
-expenseType = ['Expense', 'Income']
+incomeExpenseValue:  any ='Expense';
+expenseValue: string = 'Raw material';
+incomeValue: string = 'inc1';
+paidBy: string= 'testUser1';
+receivedBy: string = 'testUser1';
+userList = ['testUser1','testUser2'];
+incomeExpenseType = ['Expense', 'Income'];
+expenseType= ['Raw material','Tea','Transportation','Electricity','Others'];
+incomeType=['inc1','inc2','inc3','others'];
   constructor() { }
 
   ngOnInit() {
