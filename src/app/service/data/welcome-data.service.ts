@@ -10,7 +10,10 @@ export class WelcomeDataService {
     private http: HttpClient
   ) { }
   welcomeData(){
-    return this.http.get<MessageList>('https://vishakh.herokuapp.com/list');
+    return this.http.get<MessageList>('http://localhost:8080/list');
+  }
+  testError(){
+    return this.http.get('http://localhost:8080/testerror');
   }
 }
 export class MessageList{

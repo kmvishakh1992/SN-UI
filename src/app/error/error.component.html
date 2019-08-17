@@ -1,3 +1,85 @@
-<p>
-  error works!
-</p>
+<div class="container">
+  <div class="row">
+    <div class="col-md-4">
+      <form>
+        <!-- <div class="row">
+          <div class="form-group col-md-6 text-success">
+            <label for="usr">Name:</label>
+            <input type="text" class="form-control is-valid" id="usr">
+          </div>
+          <div class="form-group col-md-6 text-danger">
+            <label for="pwd">Password:</label>
+            <input type="password" class="form-control is-invalid" id="pwd">
+          </div>
+        </div> -->
+        <div class="row">
+          <label for="cars">Select:</label>
+          <select class="custom-select">
+            <option [value]="et" *ngFor="let et of expenseType"> {{et}}</option>
+          </select>
+        </div>
+        <!-- <div class="row">
+        <div class="form-check-inline">
+          <label class="form-check-label">
+            <input type="radio" class="form-check-input" name="optradio">Income
+          </label>
+        </div>
+        <div class="form-check-inline">
+          <label class="form-check-label">
+            <input type="radio" class="form-check-input" name="optradio">Expense
+          </label>
+        </div>
+      </div> -->
+
+        <div class="row">
+          <label for="cars">Select:</label>
+          <select class="custom-select">
+            <option [value]="et" *ngFor="let et of expenseType"> {{et}}</option>
+          </select>
+        </div>
+        <div class="row">
+          <label for="comment">Comment:</label>
+          <textarea class="form-control" rows="5" id="comment"></textarea>
+        </div>
+        <div class="row">
+          <div class="form-group">
+            <label for="usr">Date:</label>
+            <input type="date" class="form-control" id="date">
+          </div>
+        </div>
+        <div class="row">
+          <button type="button" class="btn btn-success">Save</button>
+          <button type="button" class="btn btn-outline-danger">Clear</button>
+        </div>
+      </form>
+    </div>
+    <div class="col-md-8">
+      <table class="table table-bodered table-hover table-condensed table-responsive">
+        <thead>
+          <tr>
+            <th scope="col1">#</th>
+            <th scope="col3">income</th>
+            <th scope="col2">expe</th>
+            <th scope="col3">comment</th>
+            <th scope="col3">inc type</th>
+            <th scope="col3">exp type</th>
+            <th>update</th>
+            <th>delete</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let t of test">
+            <td>{{id}}</td>
+            <td>{{t.income}}</td>
+            <td>{{t.expense}}</td>
+            <td>{{t.comment}}</td>
+            <td>{{t.typeOfIncome}}</td>
+            <td>{{t.typeOfExpense}}</td>
+            <td><button type="button" class="btn btn-warning">Update</button></td>
+            <td><button type="button" class="btn btn-danger">Delete</button></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

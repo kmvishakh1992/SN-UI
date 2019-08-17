@@ -19,8 +19,8 @@ account: MessageList;
 this.router.navigate(['todos']);
   }
   getList(){
-console.log(this._dataService.welcomeData());
-this._dataService.welcomeData().subscribe(
+console.log(this._dataService.testError());
+this._dataService.testError().subscribe(
   response =>this.sucess(response),
   error => this.error(error)
 );
@@ -29,6 +29,7 @@ this._dataService.welcomeData().subscribe(
     this.account=response;
   }
   error(error){
-//this.account='something went wrong';
+    console.log(error);
+this.account=error.error.message;
   }
 }
