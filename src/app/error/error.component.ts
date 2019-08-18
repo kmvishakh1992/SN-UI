@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
+import { ConfirmationDialogService } from '../service/confirmation-dialog.service';
 
 @Component({
   selector: 'app-error',
@@ -18,7 +19,7 @@ userList = ['testUser1','testUser2'];
 incomeExpenseType = ['Expense', 'Income'];
 expenseType= ['Raw material','Tea','Transportation','Electricity','Others'];
 incomeType=['inc1','inc2','inc3','others'];
-  constructor() { }
+  constructor(private confirmationDialogService: ConfirmationDialogService) { }
 
   ngOnInit() {
   }
@@ -66,4 +67,9 @@ incomeType=['inc1','inc2','inc3','others'];
     typeOfIncome: 'type of income',
   }
   ];
+  public openConfirmationDialog() {
+    this.confirmationDialogService.confirm('Confirm to delete', 'Do you really want to delete ?')
+    .then((confirmed) => console.log('User confirmed:', confirmed))
+    .catch(() => console.log('User dismissed the dialog (e.g., by using ESC, clicking the cross icon, or clicking outside the dialog)'));
+  }
 }
