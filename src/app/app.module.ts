@@ -14,6 +14,9 @@ import { LogoutComponent } from './logout/logout.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ConfirmationDialogComponent } from './confirmation-dialog/confirmation-dialog.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { MatSortModule } from '@angular/material/sort';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+
 
 @NgModule({
   declarations: [
@@ -30,7 +33,12 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    ReactiveFormsModule,FormsModule,HttpClientModule,NgbModule.forRoot()
+    ReactiveFormsModule,
+    FormsModule,
+    HttpClientModule,
+    MatSortModule,
+    BrowserAnimationsModule,
+    NgbModule.forRoot()
   ],
   providers: [],
   entryComponents: [ ConfirmationDialogComponent ],

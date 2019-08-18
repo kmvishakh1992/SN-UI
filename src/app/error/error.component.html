@@ -81,8 +81,8 @@
     <div class="col-md-8">
 
       <h1 class="justify-center">Transactions added today</h1>
-
-      <table class="table table-bodered table-hover table-condensed table-responsive">
+      
+      <table matSort (matSortChange)="sortData($event)" class="table table-bodered table-hover table-condensed table-responsive">
 
         <thead>
           <tr>
@@ -90,7 +90,7 @@
             <th scope="col3">income</th>
             <th scope="col2">expe</th>
             <th scope="col3">comment</th>
-            <th scope="col3">inc type</th>
+            <th mat-sort-header="typeOfIncome">inc type</th>
             <th scope="col3">exp type</th>
             <th>update</th>
             <th>delete</th>
@@ -98,7 +98,7 @@
         </thead>
 
         <tbody>
-          <tr *ngFor="let t of test">
+          <tr *ngFor="let t of sortedData">
             <td>{{id}}</td>
             <td>{{t.income}}</td>
             <td>{{t.expense}}</td>
