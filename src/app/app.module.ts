@@ -17,7 +17,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { MatSortModule } from '@angular/material/sort';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatCardModule } from '@angular/material/card';
-import { MatSelectModule, MatInputModule, MatFormFieldModule,MatIconModule,MatButtonModule,MatDialogModule, MatDatepickerModule, MatProgressSpinnerModule, MatPaginatorModule, MatTableModule, MatToolbarModule, MatListModule, MatSidenavModule, MatTabsModule, MatMenuModule } from '@angular/material';
+import { MatSelectModule, MatInputModule, MatFormFieldModule,MatIconModule,MatButtonModule,MatDialogModule, MatDatepickerModule, MatProgressSpinnerModule, MatPaginatorModule, MatTableModule, MatToolbarModule, MatListModule, MatSidenavModule, MatTabsModule, MatMenuModule, MatSnackBarModule } from '@angular/material';
 import { AddTransactionComponent } from './add-transaction/add-transaction.component';
 
 @NgModule({
@@ -66,7 +66,7 @@ import { AddTransactionComponent } from './add-transaction/add-transaction.compo
     AppRoutingModule,
     MatSelectModule,
     MatDatepickerModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,MatSnackBarModule
   ],
   providers: [],
   entryComponents: [ConfirmationDialogComponent,AddTransactionComponent],

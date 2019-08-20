@@ -1,6 +1,6 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { Validators, FormBuilder, FormGroup } from '@angular/forms';
-import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
+import { MatDialogRef, MAT_DIALOG_DATA, MatSnackBar } from '@angular/material';
 export interface Course {
   id:number;
   description:string;
@@ -28,7 +28,7 @@ export class AddTransactionComponent implements OnInit {
   form: FormGroup;
   description:string;
 
-  constructor(
+  constructor(private successMsg: MatSnackBar,
       private fb: FormBuilder,
       private dialogRef: MatDialogRef<AddTransactionComponent>,
       @Inject(MAT_DIALOG_DATA) {description,longDescription,
@@ -51,11 +51,16 @@ export class AddTransactionComponent implements OnInit {
 
 
   save() {
-      this.dialogRef.close(this.form.value);
+      //this.dialogRef.close(this.form.value);
+      this.sucess('Saved sucessfully','done');
   }
 
   close() {
       this.dialogRef.close();
   }
+  sucess(message: string, action: string) {
+    this.successMsg.open(message, action, {
+      duration: 2000,
+    });}
 
 }
