@@ -15,8 +15,9 @@ import { HttpClientModule } from '@angular/common/http';
 import { ConfirmationDialogComponent } from './confirmation-dialog/confirmation-dialog.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { MatSortModule } from '@angular/material/sort';
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatCardModule } from '@angular/material/card';
+import { MatSelectModule, MatInputModule, MatFormFieldModule,MatIconModule,MatButtonModule } from '@angular/material';
 
 @NgModule({
   declarations: [
@@ -38,10 +39,12 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
     HttpClientModule,
     MatSortModule,
     BrowserAnimationsModule,
-    NgbModule.forRoot()
+    NgbModule.forRoot(),
+    MatCardModule,
+    MatFormFieldModule, MatSelectModule, MatInputModule,MatIconModule,MatButtonModule
   ],
   providers: [],
-  entryComponents: [ ConfirmationDialogComponent ],
+  entryComponents: [ConfirmationDialogComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
