@@ -1,5 +1,10 @@
-<h2 mat-dialog-title>Add Transaction</h2>
+<div mat-dialog-title class="row">
+  <button type="button" class="close" (click)="close()">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
 
+<h2>Add Transaction</h2>
 
 <mat-dialog-content>
 
@@ -47,15 +52,15 @@
 
   </div>
   <div class="row">
-      <div class="col-lg-6">
-    <div *ngIf="incomeExpenseValue==='Expense'">
-      
+    <div class="col-lg-6">
+      <div *ngIf="incomeExpenseValue==='Expense'">
+
         <label for="cars">Amount spend for:</label>
         <select class="custom-select" [(ngModel)]="expenseValue">
           <option [ngValue]="et" *ngFor="let et of expenseType"> {{et}}</option>
         </select>
-    </div>
-    <div *ngIf="incomeExpenseValue==='Income'">
+      </div>
+      <div *ngIf="incomeExpenseValue==='Income'">
         <label for="cars">Amount received for:</label>
         <select class="custom-select" [(ngModel)]="incomeValue">
           <option [ngValue]="et" *ngFor="let et of incomeType"> {{et}}</option>
