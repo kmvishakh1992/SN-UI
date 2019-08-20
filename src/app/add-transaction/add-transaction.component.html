@@ -1,0 +1,95 @@
+<h2 mat-dialog-title>Add Transaction</h2>
+
+
+<mat-dialog-content>
+
+  <div class="row">
+    <div class="col-lg-12">
+      <label for="cars">Transaction:</label>
+      <select class="custom-select" [(ngModel)]="incomeExpenseValue">
+        <option [ngValue]="et" *ngFor="let et of incomeExpenseType"> {{et}}</option>
+      </select>
+    </div>
+  </div>
+
+  <div *ngIf="incomeExpenseValue==='Expense'">
+    <div class="row">
+      <div class="col-lg-6">
+        <label for="usr">Amount paid:</label>
+        <input type="text" class="form-control" id="usr">
+      </div>
+      <div class="col-lg-6">
+        <label for="cars">Amount paid by:</label>
+        <select class="custom-select" [(ngModel)]="paidBy">
+          <option [ngValue]="et" *ngFor="let et of userList"> {{et}}</option>
+        </select>
+      </div>
+    </div>
+
+
+  </div>
+
+  <div *ngIf="incomeExpenseValue==='Income'">
+
+    <div class="form-group row">
+      <div class="col-lg-6">
+        <label for="usr">Amount received:</label>
+        <input type="text" class="form-control" id="amt-received">
+      </div>
+
+      <div class="col-lg-6">
+        <label for="cars">Amount received by:</label>
+        <select class="custom-select" [(ngModel)]="receivedBy">
+          <option [ngValue]="et" *ngFor="let et of userList"> {{et}}</option>
+        </select>
+      </div>
+    </div>
+
+  </div>
+  <div class="row">
+      <div class="col-lg-6">
+    <div *ngIf="incomeExpenseValue==='Expense'">
+      
+        <label for="cars">Amount spend for:</label>
+        <select class="custom-select" [(ngModel)]="expenseValue">
+          <option [ngValue]="et" *ngFor="let et of expenseType"> {{et}}</option>
+        </select>
+    </div>
+    <div *ngIf="incomeExpenseValue==='Income'">
+        <label for="cars">Amount received for:</label>
+        <select class="custom-select" [(ngModel)]="incomeValue">
+          <option [ngValue]="et" *ngFor="let et of incomeType"> {{et}}</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="col-lg-6">
+      <div class="form-group">
+        <label for="usr">Date of Transaction:</label>
+        <input type="date" class="form-control" id="date">
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-lg-12">
+      <label for="comment">Comment:</label>
+      <textarea class="form-control" rows="5" id="comment"></textarea>
+    </div>
+  </div>
+
+
+
+</mat-dialog-content>
+
+<mat-dialog-actions class="button-row">
+
+  <button class="btn btn-light" (click)="close()">
+    Close
+  </button>
+
+  <button class="btn btn-success" (click)="save()">
+    Save
+  </button>
+
+</mat-dialog-actions>

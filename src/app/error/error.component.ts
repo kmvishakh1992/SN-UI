@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { ConfirmationDialogService } from '../service/confirmation-dialog.service';
 import {Sort} from '@angular/material/sort';
+import { MatDialogConfig, MatDialog } from '@angular/material';
+import { AddTransactionComponent } from '../add-transaction/add-transaction.component';
 
 export interface Test {
   date: Date;
@@ -10,6 +12,10 @@ export interface Test {
   comment: string;
   typeOfExpense: string;
   typeOfIncome: string;
+  receivedBy: string;
+  paidBy: string;
+  receivedFor:string;
+  paidFor:string;
 }
 function compare(a: number | string, b: number | string, isAsc: boolean) {
   return (a < b ? -1 : 1) * (isAsc ? 1 : -1);
@@ -17,7 +23,7 @@ function compare(a: number | string, b: number | string, isAsc: boolean) {
 @Component({
   selector: 'app-error',
   templateUrl: './error.component.html',
-  styleUrls: ['./error.component.sass']
+  styleUrls: ['./error.component.scss']
 })
 export class ErrorComponent implements OnInit {
 id: number =1;
@@ -32,7 +38,7 @@ incomeExpenseType = ['Expense', 'Income'];
 expenseType= ['Raw material','Tea','Transportation','Electricity','Others'];
 incomeType=['inc1','inc2','inc3','others'];
 sortedData: Test[];
-  constructor(private confirmationDialogService: ConfirmationDialogService) {
+  constructor(private dialog: MatDialog,private confirmationDialogService: ConfirmationDialogService) {
     this.sortedData = this.test.slice();
    }
 
@@ -60,17 +66,25 @@ sortedData: Test[];
   test: Test[] = [{
     date: new Date,
     income: 12,
-    expense: 45,
+    expense: null,
     comment: 'commment section',
-    typeOfExpense: 'abtype of exp',
+    typeOfExpense: '',
     typeOfIncome: 'abincome',
+    receivedBy: '',
+    receivedFor:'test',
+    paidFor:'test',
+    paidBy: 'user1'
   },{
     date: new Date,
-    income: 12,
+    income: null,
     expense: 45,
     comment: 'commment section',
     typeOfExpense: 'bgtype of exp',
-    typeOfIncome: 'bgincome',
+    typeOfIncome: '',
+    receivedBy: '',
+    receivedFor:'test',
+    paidFor:'test',
+    paidBy: 'user1'
   },{
     date: new Date,
     income: 12,
@@ -78,6 +92,10 @@ sortedData: Test[];
     comment: 'commment section',
     typeOfExpense: 'sttype of exp',
     typeOfIncome: 'stincome',
+    receivedBy: 'user1',
+    receivedFor:'test',
+    paidFor:'test',
+    paidBy: 'user1'
   },{
     date: new Date,
     income: 12,
@@ -85,6 +103,10 @@ sortedData: Test[];
     comment: 'commment section',
     typeOfExpense: 'type of exp',
     typeOfIncome: 'dfincome',
+    receivedBy: 'user1',
+    receivedFor:'test',
+    paidFor:'test',
+    paidBy: 'user1'
   },{
     date: new Date,
     income: 12,
@@ -92,6 +114,10 @@ sortedData: Test[];
     comment: 'commment section',
     typeOfExpense: 'type of exp',
     typeOfIncome: 'rtincome',
+    receivedBy: 'user1',
+    receivedFor:'test',
+    paidFor:'test',
+    paidBy: 'user1'
   },{
     date: new Date,
     income: 12,
@@ -99,6 +125,10 @@ sortedData: Test[];
     comment: 'commment section',
     typeOfExpense: 'type of exp',
     typeOfIncome: 'fsincome',
+    receivedBy: 'user1',
+    receivedFor:'test',
+    paidFor:'test',
+    paidBy: 'user1'
   }
   ];
   public openConfirmationDialog() {
@@ -106,4 +136,17 @@ sortedData: Test[];
     .then((confirmed) => console.log('User confirmed:', confirmed))
     .catch(() => console.log('User dismissed the dialog (e.g., by using ESC, clicking the cross icon, or clicking outside the dialog)'));
   }
+  openDialog() {
+    const dialogConfig = new MatDialogConfig();
+
+    dialogConfig.disableClose = true;
+    dialogConfig.autoFocus = true;
+
+    dialogConfig.data = {
+        id: 1,
+        title: 'Angular For Beginners'
+    };
+
+    this.dialog.open(AddTransactionComponent, dialogConfig);
+}
 }

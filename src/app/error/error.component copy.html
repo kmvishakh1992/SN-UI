@@ -1,0 +1,117 @@
+<div class="container">
+  <div class="row">
+<!-- input fileds starts here -->
+    <div class="col-md-4">
+      <h1>Add transactions</h1>
+
+      <div class="row">
+        <label for="cars">Transaction:</label>
+        <select class="custom-select" [(ngModel)]="incomeExpenseValue">
+          <option [ngValue]="et" *ngFor="let et of incomeExpenseType"> {{et}}</option>
+        </select>
+      </div>
+
+      <div *ngIf="incomeExpenseValue==='Expense'">
+
+        <div class="form-group row">
+          <label for="usr">Amount paid:</label>
+          <input type="text" class="form-control" id="usr">
+        </div>
+
+        <div class="row">
+          <label for="cars">Amount paid by:</label>
+          <select class="custom-select" [(ngModel)]="paidBy">
+            <option [ngValue]="et" *ngFor="let et of userList"> {{et}}</option>
+          </select>
+        </div>
+
+        <div class="row">
+          <label for="cars">Amount spend for:</label>
+          <select class="custom-select" [(ngModel)]="expenseValue">
+            <option [ngValue]="et" *ngFor="let et of expenseType"> {{et}}</option>
+          </select>
+        </div>
+
+      </div>
+
+      <div *ngIf="incomeExpenseValue==='Income'">
+
+        <div class="form-group row">
+          <label for="usr">Amount received:</label>
+          <input type="text" class="form-control" id="amt-received">
+        </div>
+
+        <div class="row">
+            <label for="cars">Amount received by:</label>
+            <select class="custom-select" [(ngModel)]="receivedBy">
+              <option [ngValue]="et" *ngFor="let et of userList"> {{et}}</option>
+            </select>
+          </div>
+
+          <div class="row">
+              <label for="cars">Amount received for:</label>
+              <select class="custom-select" [(ngModel)]="incomeValue">
+                <option [ngValue]="et" *ngFor="let et of incomeType"> {{et}}</option>
+              </select>
+            </div>
+
+      </div>
+
+      <div class="row">
+        <label for="comment">Comment:</label>
+        <textarea class="form-control" rows="5" id="comment"></textarea>
+      </div>
+
+      <div class="row">
+        <div class="form-group">
+          <label for="usr">Date of Transaction:</label>
+          <input type="date" class="form-control" id="date">
+        </div>
+      </div>
+
+      <div class="row">
+        <button type="button" class="btn btn-success">Save</button>
+        <button type="button" class="btn btn-outline-danger">Clear</button>
+      </div>
+
+    </div>
+    <!-- input fields ends here -->
+
+    <!-- table begins -->
+    <div class="col-md-8">
+
+      <h1 class="justify-center">Transactions added today</h1>
+      
+      <table matSort (matSortChange)="sortData($event)" class="table table-bodered table-hover table-condensed table-responsive">
+
+        <thead>
+          <tr>
+            <th scope="col1">#</th>
+            <th scope="col3">income</th>
+            <th scope="col2">expe</th>
+            <th scope="col3">comment</th>
+            <th mat-sort-header="typeOfIncome">inc type</th>
+            <th scope="col3">exp type</th>
+            <th>update</th>
+            <th>delete</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr *ngFor="let t of sortedData">
+            <td>{{id}}</td>
+            <td>{{t.income}}</td>
+            <td>{{t.expense}}</td>
+            <td>{{t.comment}}</td>
+            <td>{{t.typeOfIncome}}</td>
+            <td>{{t.typeOfExpense}}</td>
+            <td><button type="button" class="btn btn-primary">Update</button></td>
+            <td><button type="button" class="btn btn-danger"  (click)="openConfirmationDialog()">Delete</button></td>
+          </tr>
+        </tbody>
+
+      </table>
+    </div>
+    <!-- table end -->
+  </div>
+</div>

@@ -17,7 +17,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { MatSortModule } from '@angular/material/sort';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatCardModule } from '@angular/material/card';
-import { MatSelectModule, MatInputModule, MatFormFieldModule,MatIconModule,MatButtonModule } from '@angular/material';
+import { MatSelectModule, MatInputModule, MatFormFieldModule,MatIconModule,MatButtonModule,MatDialogModule, MatDatepickerModule, MatProgressSpinnerModule, MatPaginatorModule, MatTableModule, MatToolbarModule, MatListModule, MatSidenavModule, MatTabsModule, MatMenuModule } from '@angular/material';
+import { AddTransactionComponent } from './add-transaction/add-transaction.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { MatSelectModule, MatInputModule, MatFormFieldModule,MatIconModule,MatBu
     MenuComponent,
     FooterComponent,
     LogoutComponent,
-    ConfirmationDialogComponent
+    ConfirmationDialogComponent,
+    AddTransactionComponent
   ],
   imports: [
     BrowserModule,
@@ -41,10 +43,33 @@ import { MatSelectModule, MatInputModule, MatFormFieldModule,MatIconModule,MatBu
     BrowserAnimationsModule,
     NgbModule.forRoot(),
     MatCardModule,
-    MatFormFieldModule, MatSelectModule, MatInputModule,MatIconModule,MatButtonModule
+    MatFormFieldModule, 
+    MatSelectModule, 
+    MatInputModule,
+    MatIconModule,
+    MatButtonModule,
+    MatDialogModule,
+    MatMenuModule,
+    MatButtonModule,
+    MatIconModule,
+    MatCardModule,
+    MatTabsModule,
+    MatSidenavModule,
+    MatListModule,
+    MatToolbarModule,
+    MatInputModule,
+    MatTableModule,
+    MatPaginatorModule,
+    MatSortModule,
+    MatProgressSpinnerModule,
+    MatDialogModule,
+    AppRoutingModule,
+    MatSelectModule,
+    MatDatepickerModule,
+    ReactiveFormsModule
   ],
   providers: [],
-  entryComponents: [ConfirmationDialogComponent],
+  entryComponents: [ConfirmationDialogComponent,AddTransactionComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
