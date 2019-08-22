@@ -51,7 +51,7 @@ export class AddTransactionComponent implements OnInit {
 
 
   save() {
-      //this.dialogRef.close(this.form.value);
+      this.dialogRef.close(this.form.value);
       this.sucess('Saved sucessfully','done');
   }
 
